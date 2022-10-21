@@ -121,7 +121,8 @@ create table COUPON(
 	USE_OVER              date not null,
 	MINIMUM               int not null
     );
-    
+
+insert into ('會員入會禮300元折價券' 2020-10-10, 2077-12-30, 2020-10-10, 2077-12-30, 999);
 
 -- 新增會員持有折價券表格
 create table MEMBER_COUPON(
@@ -133,10 +134,10 @@ primary key (COUPON_ID,MEM_ID),
 constraint fk_MEMBER_COUPON_COUPON_ID foreign key (COUPON_ID) references COUPON(COUPON_ID),
 constraint fk_MEMBER_COUPON_MEM_ID foreign key (MEM_ID) references MEMBER(MEM_ID)
 );
--- insert into MEMBER_COUPON(COUPON_ID,MEM_ID,MCPN_USE)
--- values
--- (1,1,0),
--- (1,2,0);
+insert into MEMBER_COUPON(COUPON_ID,MEM_ID,MCPN_USE)
+values
+(1,1,0),
+(1,2,0);
 
 
 -- 新增認證醫生
@@ -195,10 +196,40 @@ create table ITEM(
     
 alter table ITEM add constraint FK_ITEM_ITEMT_ID foreign key (ITEM_ID) references ITEM_TYPE (ITEMT_ID);
     
-insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE) 
-value (1, '[Zeniter先立特] 頂級無穀幼母犬1.2kg 幼母犬糧 狗飼料', '好吃喔', 499, 99, 0, '2023-01-01', '2023-12-30');
-insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE) 
-value (5, '[極致Origg] 愛貓守護8無穀配方貓飼料', '好吃喔', 340, 99, 1, '2023-01-01', '2023-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (1, '[Zeniter先立特] 頂級無穀幼母犬1.2kg 幼母犬糧 狗飼料', '好吃喔', 499, 999, 0, '2020-01-01', '2023-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (5, '[極致Origg] 愛貓守護8無穀配方貓飼料', '好吃喔', 340, 999, 1, '2020-01-01', '2023-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (11, 'Petkit 小佩智能感應式除臭貓砂盆', '貓砂盆', 2380, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (11, '韓系makesure 麻薯半封閉式貓砂盆-三色', '貓砂盆', 2580, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (11, '【哈燒新品】UAH 貓砂盆智能伴侶-除臭專用-二代', '貓砂盆', 780, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, 'PIDAN 貓咪防砂墊 貓砂墊', '貓砂墊', 499, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (19, 'Petkit 小佩 寵物智能去味器-除臭首推', '去味器', 790, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (19, '【熱銷新品】UAH 負離子寵物梳 不傷健康毛囊', '寵物梳', 690, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (19, 'LED燈-照血管寵物指甲剪-隨機色', '指甲剪', 180, 959, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, '【團購訂制款】吸盤式瓦楞貓抓板', '超猛的!', 690, 117, 0, '2020-1-1', '2020-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (19, '【『爆玩新品』PIDAN 電動小雪怪-翻滾玩具', '玩具', 160, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, '美國CATIT 牆角磨蹭器', '磨蹭器', 140, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, '「日本超夯」滿月隧道 貓窩 隧道-兩色', '貓隧道', 649, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, '不倒翁 漏食球 可裝飼料零食(貓用)', '玩具', 165, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, 'PIDAN 寵物餵食針筒', '針筒', 185, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (10, 'PETKIT 小佩 寵物按摩梳 神奇梳毛 按摩梳 貓咪最愛', '按摩梳', 165, 999, 1, '2020-1-1', '2025-12-30');
+insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
+    value (19, '寵物吸盤窩 觀景好幫手', 'Good', 599, 929, 1, '2022-1-1', '2025-12-30');
 
 
 -- 創建 商品訂單 表格
@@ -383,6 +414,8 @@ create table NEWS_PICTURE(
     );
     
 alter table NEWS_PICTURE add constraint FK_NEWS_PICTURE_NEWS_ID foreign key (NEWS_ID) references NEWS (NEWS_ID);
+
+insert into NEWS_PICTURE (NEWS_ID) values (1) (2);
 
 -- 創建 團購商品 表格
 create table GROUP_BUY_ITEM(
