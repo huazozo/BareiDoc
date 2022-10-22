@@ -122,7 +122,8 @@ create table COUPON(
 	MINIMUM               int not null
     );
 
-insert into ('會員入會禮300元折價券' 2020-10-10, 2077-12-30, 2020-10-10, 2077-12-30, 999);
+insert into COUPON(COUPON_NAR, RECEIVE_START, RECEIVE_OVER, USE_START, USE_OVER, MINIMUM)
+ value ('會員入會禮300元折價券' , '2020-10-10', '2077-12-30', '2020-10-10', '2077-12-30', 999);
 
 -- 新增會員持有折價券表格
 create table MEMBER_COUPON(
@@ -415,7 +416,8 @@ create table NEWS_PICTURE(
     
 alter table NEWS_PICTURE add constraint FK_NEWS_PICTURE_NEWS_ID foreign key (NEWS_ID) references NEWS (NEWS_ID);
 
-insert into NEWS_PICTURE (NEWS_ID) values (1) (2);
+insert into NEWS_PICTURE (NEWS_ID) value (1);
+insert into NEWS_PICTURE (NEWS_ID) value (2);
 
 -- 創建 團購商品 表格
 create table GROUP_BUY_ITEM(
