@@ -115,6 +115,7 @@ values
 create table COUPON(
 	COUPON_ID             int not null primary key auto_increment,
 	COUPON_NAR            varchar(255) not null,
+	COUPON_VAL            int not null,
 	RECEIVE_START         date not null,
 	RECEIVE_OVER          date not null,
 	USE_START             date not null,
@@ -123,7 +124,7 @@ create table COUPON(
     );
 
 insert into COUPON(COUPON_NAR, RECEIVE_START, RECEIVE_OVER, USE_START, USE_OVER, MINIMUM)
- value ('會員入會禮300元折價券' , '2020-10-10', '2077-12-30', '2020-10-10', '2077-12-30', 999);
+ value ('會員入會禮300元折價券', 300, '2020-10-10', '2077-12-30', '2020-10-10', '2077-12-30', 999);
 
 -- 新增會員持有折價券表格
 create table MEMBER_COUPON(
