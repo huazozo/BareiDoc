@@ -123,7 +123,7 @@ create table COUPON(
 	MINIMUM               int not null
     );
 
-insert into COUPON(COUPON_NAR, RECEIVE_START, RECEIVE_OVER, USE_START, USE_OVER, MINIMUM)
+insert into COUPON(COUPON_NAR, COUPON_VAL, RECEIVE_START, RECEIVE_OVER, USE_START, USE_OVER, MINIMUM)
  value ('會員入會禮300元折價券', 300, '2020-10-10', '2077-12-30', '2020-10-10', '2077-12-30', 999);
 
 -- 新增會員持有折價券表格
@@ -366,13 +366,14 @@ insert into ARTICLE_COMMENT (ARTICLE_ID, MEM_ID, COM_CONTENT) values
 
 
 -- 創建貼文圖片表格
-create table ARTICLE_PICTURES(
-ARTICLE_PICNO int not null auto_increment primary key comment "文章圖片編號",
-ARTICLE_PIC longblob comment "文章圖片",
-ARTICLE_ID int not null,
-constraint FK_ARTICLE_PICTURES_ARTICLE_ID foreign key (ARTICLE_ID) references ARTICLE (ARTICLE_ID)
+create table ARTICLE_IDENTITY(
+ARTICLE_PICNO int not null auto_increment primary key comment "會員圖片編號",
+ARTICLE_PIC longblob comment "會員圖片",
+MEM_ID int not null,
+UPLOAD_TIME timestamp default current_timestamp comment "上傳時間",
+constraint FK_ARTICLE_IDENTITY_MEM_ID foreign key (MEM_ID) references MEMBER (MEM_ID)
 );
-insert into ARTICLE_PICTURES(ARTICLE_ID) values
+insert into ARTICLE_IDENTITY(MEM_ID) values
 (1), (3);
 
 
@@ -574,6 +575,18 @@ references ITEM(ITEM_ID)
 insert into FAVORITE_LIST(MEM_ID,ITEM_ID) values(1,1);
 insert into FAVORITE_LIST(MEM_ID,ITEM_ID) values(2,2);
 
+create table LIKE_HATE(
+MEM_ID int not null comment '會員編號',
+ARTICLE_ID int not null comment '文章編號',
+LIKE_STATUS tinyint comment '按讚狀態 0:都沒按(非預設，取消時才有此狀態) 1:按讚 2:按倒讚',
+LIKE_TIME timestamp default current_timestamp on update current_timestamp,
+primary key(MEM_ID, ARTICLE_ID),
+constraint FK_LIKE_HATE_MEM_ID foreign key (MEM_ID) references MEMBER (MEM_ID),
+constraint FK_LIKE_HATE_ARTICLE_ID foreign key (ARTICLE_ID) references ARTICLE (ARTICLE_ID)
+);
+insert into LIKE_HATE(MEM_ID, ARTICLE_ID, LIKE_STATUS) 
+values(1, 1, 2), (2, 2, 1);
+
 -- 查詢區-- 
 -- select * from member;
 -- select * from notification;
@@ -592,7 +605,7 @@ insert into FAVORITE_LIST(MEM_ID,ITEM_ID) values(2,2);
 -- select * from ARTICLE_SORTTYPE;
 -- select * from ARTICLE_COMMENT;
 -- select * from ARTICLE_REPORT;
--- select * from ARTICLE_PICTURES;
+-- select * from ARTICLE_IDENTITY;
 -- select * from NEWS;
 -- select * from news_picture; insert
 -- SELECT * FROM GROUP_BUY_ITEM;
@@ -604,4 +617,5 @@ insert into FAVORITE_LIST(MEM_ID,ITEM_ID) values(2,2);
 -- SELECT * FROM FAVORITE_LIST;
 -- SELECT * FROM EMP;
 -- SELECT * FROM EFFECT;
+-- SELECT * FROM LIKE_HATE;
 -- drop database ba_rei;
