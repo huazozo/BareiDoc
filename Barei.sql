@@ -240,7 +240,7 @@ create table ORDER_BUY(
 	MEM_ID               int not null,
 	ORIGINAL_PRICE       int not null,
 	DISCOUNT_PRICE       int not null,
-    FINAL_PRICE          int not null,
+   	FINAL_PRICE          int not null,
 	ORDER_DATE           datetime not null,
 	ORDER_PAYING         tinyint not null comment '0:貨到付款, 1:ATM轉帳, 2:信用卡;',  
 	ORDER_SEND           tinyint not null comment '0:宅配, 1:便利商店;',
@@ -262,7 +262,7 @@ value (3, 499, 499, 499 , '2022-10-13 3:1:56', 0, 1, 0, '無', 'test00001', '梯
 
 -- 創建 訂單明細 表格
 create table COMMODITY_DETAILS(
-	ORDER_ID             int not null auto_increment,
+	ORDER_ID             int not null,
 	ITEM_ID              int not null,
 	ITEM_NAME            varchar(200) not null,
 	CD_AMOUNT            int not null,
