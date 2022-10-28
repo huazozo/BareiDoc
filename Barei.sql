@@ -273,7 +273,7 @@ create table COMMODITY_DETAILS(
 alter table COMMODITY_DETAILS add constraint FK_COMMODITY_DETAILS_ORDER_ID foreign key (ORDER_ID) references ORDER_BUY (ORDER_ID);
 alter table COMMODITY_DETAILS add constraint FK_COMMODITY_DETAILS_ITEM_ID foreign key (ITEM_ID) references ITEM (ITEM_ID);
 
-insert into COMMODITY_DETAILS (ITEM_ID, ITEM_NAME, CD_AMOUNT, ITEM_PRICE) value (1, '[Zeniter先立特] 頂級無穀幼母犬1.2kg 幼母犬糧 狗飼料', 3, 499);
+insert into COMMODITY_DETAILS (ORDER_ID, ITEM_ID, ITEM_NAME, CD_AMOUNT, ITEM_PRICE) value (1, 1, '[Zeniter先立特] 頂級無穀幼母犬1.2kg 幼母犬糧 狗飼料', 3, 499);
 
 
 -- 創建 商品評價 表格
@@ -368,7 +368,7 @@ insert into ARTICLE_COMMENT (ARTICLE_ID, MEM_ID, COM_CONTENT) values
 -- 創建貼文圖片表格
 create table ARTICLE_IDENTITY(
 ARTICLE_PICNO int not null auto_increment primary key comment "會員圖片編號",
-ARTICLE_PIC longblob comment "會員圖片",
+ARTICLE_PIC text comment "會員圖片",
 MEM_ID int not null,
 UPLOAD_TIME timestamp default current_timestamp comment "上傳時間",
 constraint FK_ARTICLE_IDENTITY_MEM_ID foreign key (MEM_ID) references MEMBER (MEM_ID)
