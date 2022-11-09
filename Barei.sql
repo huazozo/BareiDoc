@@ -196,7 +196,7 @@ create table ITEM(
 	ITEM_ENDDATE         date not null
     );
     
-alter table ITEM add constraint FK_ITEM_ITEMT_ID foreign key (ITEM_ID) references ITEM_TYPE (ITEMT_ID);
+alter table ITEM add constraint FK_ITEM_ITEMT_ID foreign key (ITEMT_ID) references ITEM_TYPE (ITEMT_ID);
     
 insert into ITEM (ITEMT_ID, ITEM_NAME, ITEM_CONTENT, ITEM_PRICE, ITEM_AMOUNT, ITEM_STATUS, ITEM_DATE, ITEM_ENDDATE)
     value (1, '[Zeniter先立特] 頂級無穀幼母犬1.2kg 幼母犬糧 狗飼料', '好吃喔', 499, 999, 0, '2020-01-01', '2023-12-30');
